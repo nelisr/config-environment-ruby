@@ -6,8 +6,10 @@
 
 ## 3 - update and upgrade packages in the system 
 	
+	```
 	sudo apt-get -y update
-    sudo apt-get -y upgrade
+  sudo apt-get -y upgrade
+  ```
 	
 
 ## 4 - install packages essencials
@@ -32,8 +34,7 @@
 	/etc/evironment
 	LC_ALL="en_US.UTF-8"
 	RAILS_ENV="production"     
-    
-    /etc/profile.d/variables.sh
+  /etc/profile.d/variables.sh
 	export LC_ALL="en_US.UTF-8"
 	export RAILS_ENV="production"	
 
@@ -67,13 +68,15 @@
 
 ## 8 - install nginx (web server)
 	
+	```
 	sudo apt-get -y update
-    
 	sudo apt-get install nginx
+	```
 
 
 ## 9 - adjust firewall
 	
+	```
 	sudo ufw app list
 	sudo ufw allow 'Ngnix HTTP'
 	sudo ufw status
@@ -81,23 +84,27 @@
 	sudo ufw allow ssh
 	sudo service ufw restart 
 	systemctl status nginx
-
+	```
 
 ## 10 - install mysql
 	
+	```
 	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev
 	sudo systemctl status mysql
+	```
 
 
 ## 11 - create user for deploy 
 	
+	```
 	sudo adduser deploy --ingroup www-data
 	su deploy
 	cd
  	mkdir .ssh
  	chmod 700 .ssh
  	echo [cole a chave pública do seu vagrant] >> ~/.ssh/authorized_keys
-   	chmod 600 ~/.ssh/authorized_keys
+  chmod 600 ~/.ssh/authorized_keys
+  ```
 
 
 ## 12 -  install node , directory deploy and create db
@@ -116,7 +123,7 @@
 ## 13 - configure capistrano
 	
 	**add in gemfile**
-
+	```ruby
 	group :development do
 	  gem 'capistrano', '~> 3.7'
     gem 'capistrano-bundler', '~> 1.2'
@@ -126,23 +133,31 @@
 	group :production do 
 	  gem 'mysql2'
 	end
+	```
 	
 	**execute**
+	```
 	bundle install
-
 	bundle exec cap -v
 	bundle exec cap install
 	bundle exec cap -T
+	```
 
 	**add in  Capfile**
+	```ruby
 	require 'capistrano/bundler'
 	require 'capistrano/rails'
+	```
 
-	insert in the deploy.rb
-	click here(https://gist.github.com/nelisr/7d201bd6c105fe5d8de4c7d4289155ab)
-
+	**insert in the deploy.rb**
+	[click here](https://gist.github.com/nelisr/7d201bd6c105fe5d8de4c7d4289155ab)
+	
+	
+	**execute**
+	```
 	bundle exec cap production deploy
  	bundle exec cap production deploy:check
+ 	```
 
 
 
