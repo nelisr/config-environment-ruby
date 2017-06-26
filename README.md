@@ -5,13 +5,13 @@
 ## 2 - Login via ssh or password
 
 ## 3 - update and upgrade packages in the system 
-	```linux
+	
 	sudo apt-get -y update
     sudo apt-get -y upgrade
-	```	 
+	
 
 ## 4 - install packages essencials
-	```linux
+	
 	sudo apt-get install -y build-essential
 	autoconf automake bison libssl-dev
 	libyaml-dev libreadline6 libreadline6-dev
@@ -20,13 +20,15 @@
 	libsqlite3-dev libtool libxml2-dev
 	libxslt-dev libxslt1-dev sqlite3 curl vim git
 	```	 
-	
+
 ## 5 - config user git
+    
     git config --global user.name '<seu nome>'
     git config --global user.email'<seu email>'
     git config -l
 
 ## 6 - config variables environment 
+	
 	/etc/evironment
 	LC_ALL="en_US.UTF-8"
 	RAILS_ENV="production"     
@@ -41,7 +43,8 @@
 
 ## 7 - install ruby
     execute commands:
-   
+   	
+
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3	
 
    
@@ -63,12 +66,14 @@
 
 
 ## 8 - install nginx (web server)
+	
 	sudo apt-get -y update
     
 	sudo apt-get install nginx
 
 
 ## 9 - adjust firewall
+	
 	sudo ufw app list
 	sudo ufw allow 'Ngnix HTTP'
 	sudo ufw status
@@ -79,19 +84,20 @@
 
 
 ## 10 - install mysql
+	
 	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev
 	sudo systemctl status mysql
 
 
 ## 11 - create user for deploy 
+	
 	sudo adduser deploy --ingroup www-data
 	su deploy
 	cd
  	mkdir .ssh
  	chmod 700 .ssh
- 	echo [cole a chave pública do seu vagrant] >>
-   ~/.ssh/authorized_keys
-   chmod 600 ~/.ssh/authorized_keys
+ 	echo [cole a chave pública do seu vagrant] >> ~/.ssh/authorized_keys
+   	chmod 600 ~/.ssh/authorized_keys
 
 
 ## 12 -  install node , directory deploy and create db
@@ -131,7 +137,7 @@
 	require 'capistrano/rails'
 
 	insert in the deploy.rb
-	https://gist.github.com/nelisr/7d201bd6c105fe5d8de4c7d4289155ab
+	[click here](https://gist.github.com/nelisr/7d201bd6c105fe5d8de4c7d4289155ab)
 
 	bundle exec cap production deploy
  	bundle exec cap production deploy:check
