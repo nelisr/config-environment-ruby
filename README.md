@@ -1,72 +1,53 @@
-# Config environment of production for application ruby on rails in Digital Ocean using Ubuntu 16.4 
+## Config environment of production for application ruby on rails in Digital Ocean using Ubuntu 16.4 
 
-## 1 - Create a droplet in Digital Ocean
+### 1 - Create a droplet in Digital Ocean
 
-## 2 - Login via ssh or password
+### 2 - Login via ssh or password
 
-## 3 - update and upgrade packages in the system 
+### 3 - update and upgrade packages in the system 
 	
-	```
-	sudo apt-get -y update
-  sudo apt-get -y upgrade
-  ```
+	sudo apt-get -y update 
+	sudo apt-get -y upgrade 
 	
 
-## 4 - install packages essencials
+### 4 - install packages essencials
 	
-	sudo apt-get install -y build-essential
-	autoconf automake bison libssl-dev
-	libyaml-dev libreadline6 libreadline6-dev
-	zlib1g zlib1g-dev libncurses5-dev ncurses-dev
-	libffi-dev libgdbm-dev openssl libc6-dev
-	libsqlite3-dev libtool libxml2-dev
-	libxslt-dev libxslt1-dev sqlite3 curl vim git
+	sudo apt-get install -y build-essential autoconf automake bison libssl-dev libyaml-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev libncurses5-dev ncurses-dev libffi-dev libgdbm-dev openssl libc6-dev libsqlite3-dev libtool libxml2-dev libxslt-dev libxslt1-dev sqlite3 curl vim git
 	
 
-## 5 - config user git
+### 5 - config user git
     
     git config --global user.name '<seu nome>'
     git config --global user.email'<seu email>'
     git config -l
 
-## 6 - config variables environment 
+### 6 - config variables environment 
 	
 	/etc/evironment
 	LC_ALL="en_US.UTF-8"
 	RAILS_ENV="production"     
-  /etc/profile.d/variables.sh
+	/etc/profile.d/variables.sh
 	export LC_ALL="en_US.UTF-8"
 	export RAILS_ENV="production"	
-
 	after insert values in files execute 
-
 	sudo reboot
 
-## 7 - install ruby
-    execute commands:
-   	
-
-    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3	
-
-   
+### 7 - install ruby
+  
+  execute commands:
+  ```
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3	 
 	curl -sSL https://get.rvm.io | bash
-
 	run `source /etc/profile.d/rvm.sh`
-    
-    rvm list known
+  rvm list known
+	rvm install 'VERSION RUBY'
+  rvm list
+  rvm use 'VERSION RUBY' --default
+  sudo reboot
+  gem install bundler
+	```
 
-    rvm install 'VERSION RUBY'
-
-    rvm list
-
-    rvm use 'VERSION RUBY' --default
-
-    sudo reboot
-
-    gem install bundler
-
-
-## 8 - install nginx (web server)
+### 8 - install nginx (web server)
 	
 	```
 	sudo apt-get -y update
@@ -74,7 +55,7 @@
 	```
 
 
-## 9 - adjust firewall
+### 9 - adjust firewall
 	
 	```
 	sudo ufw app list
@@ -86,7 +67,7 @@
 	systemctl status nginx
 	```
 
-## 10 - install mysql
+### 10 - install mysql
 	
 	```
 	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev
@@ -94,7 +75,7 @@
 	```
 
 
-## 11 - create user for deploy 
+### 11 - create user for deploy 
 	
 	```
 	sudo adduser deploy --ingroup www-data
@@ -107,7 +88,7 @@
   ```
 
 
-## 12 -  install node , directory deploy and create db
+### 12 -  install node , directory deploy and create db
 	sudo apt-get install nodejs
 	nodejs --version
 
@@ -120,7 +101,7 @@
 	create database nameyourdatabase;
 
 
-## 13 - configure capistrano
+### 13 - configure capistrano
 	
 	**add in gemfile**
 	```ruby
