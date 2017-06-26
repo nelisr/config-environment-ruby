@@ -19,7 +19,7 @@
 	libffi-dev libgdbm-dev openssl libc6-dev
 	libsqlite3-dev libtool libxml2-dev
 	libxslt-dev libxslt1-dev sqlite3 curl vim git
-	```	 
+	
 
 ## 5 - config user git
     
@@ -114,30 +114,32 @@
 
 
 ## 13 - configure capistrano
-	add in gemfile
+	
+	**add in gemfile**
 
 	group :development do
-		gem 'capistrano', '~> 3.7'
-    	gem 'capistrano-bundler', '~> 1.2'
-    	gem 'capistrano-rails', '~> 1.2'
+	  gem 'capistrano', '~> 3.7'
+    gem 'capistrano-bundler', '~> 1.2'
+    gem 'capistrano-rails', '~> 1.2'
 	end 
 
 	group :production do 
-		gem 'mysql2'
+	  gem 'mysql2'
 	end
-
+	
+	**execute**
 	bundle install
 
 	bundle exec cap -v
 	bundle exec cap install
 	bundle exec cap -T
 
-	in  Capfile
+	**add in  Capfile**
 	require 'capistrano/bundler'
 	require 'capistrano/rails'
 
 	insert in the deploy.rb
-	[click here](https://gist.github.com/nelisr/7d201bd6c105fe5d8de4c7d4289155ab)
+	click here(https://gist.github.com/nelisr/7d201bd6c105fe5d8de4c7d4289155ab)
 
 	bundle exec cap production deploy
  	bundle exec cap production deploy:check
