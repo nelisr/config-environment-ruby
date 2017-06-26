@@ -34,9 +34,10 @@
 
 ### 7 - install ruby
   
-  execute commands:
-  ```
-  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3	 
+**execute commands:**
+	
+	```
+	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3	 
 	curl -sSL https://get.rvm.io | bash
 	run "source /etc/profile.d/rvm.sh" 
 	rvm list known
@@ -79,12 +80,12 @@
 	```
 	sudo adduser deploy --ingroup www-data
 	su deploy
-	cd
- 	mkdir .ssh
- 	chmod 700 .ssh
- 	echo [cole a chave pública do seu vagrant] >> ~/.ssh/authorized_keys
-  chmod 600 ~/.ssh/authorized_keys
-  ```
+	cd 
+	mkdir .ssh
+	chmod 700 .ssh
+	echo [cole a chave pública do seu vagrant] >> ~/.ssh/authorized_keys
+	chmod 600 ~/.ssh/authorized_keys
+	```
 
 
 ### 12 -  install node , directory deploy and create db
@@ -103,7 +104,7 @@
 
 ### 13 - configure capistrano
 	
-	**add in gemfile**
+**add in gemfile**
 	```ruby
 	group :development do
 	  gem 'capistrano', '~> 3.7'
@@ -116,7 +117,7 @@
 	end
 	```
 	
-	**execute**
+**execute**
 	```
 	bundle install
 	bundle exec cap -v
@@ -124,17 +125,17 @@
 	bundle exec cap -T
 	```
 
-	**add in  Capfile**
+**add in  Capfile**
 	```ruby
 	require 'capistrano/bundler'
 	require 'capistrano/rails'
 	```
 
-	**insert in the deploy.rb**
+**insert in the deploy.rb**
 	[click here](https://gist.github.com/nelisr/7d201bd6c105fe5d8de4c7d4289155ab)
 	
 	
-	**execute**
+**execute**
 	```
 	bundle exec cap production deploy
 	bundle exec cap production deploy:check
