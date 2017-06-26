@@ -2,9 +2,10 @@
 **this guide will demonstrate how create environment of productionfor application ruby on rails in [Digital Ocean](https://www.digitalocean.com) using Ubuntu 16.4 and deploy**
 
 ### 1 - Create a droplet in Digital Ocean
-	ssh youruser@yourip
+[Click Here](https://www.digitalocean.com/pricing/#droplet)
 
 ### 2 - Login via ssh or password
+	ssh youruser@yourip
 
 ### 3 - update and upgrade packages in the system 
 	
