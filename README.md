@@ -1,10 +1,13 @@
-# Config environment of production for application ruby on rails in Digital Ocean using Ubuntu 16.4 .
+# Config environment of production for application ruby on rails in Digital Ocean using Ubuntu 16.4 
 
 ##1 - Create a droplet in Digital Ocean
+
 ##2 - Login via ssh or password
+
 ##3 - update and upgrade packages in the system 
  	sudo apt-get -y update
     sudo apt-get -y upgrade 
+
 ##4 - install packages essencials
 	sudo apt-get install -y build-essential
 	autoconf automake bison libssl-dev
@@ -13,10 +16,12 @@
 	libffi-dev libgdbm-dev openssl libc6-dev
 	libsqlite3-dev libtool libxml2-dev
 	libxslt-dev libxslt1-dev sqlite3 curl vim git
+
 ##5 - config user git
     git config --global user.name '<seu nome>'
     git config --global user.email'<seu email>'
     git config -l
+
 ##6 - config variables environment 
 	/etc/evironment
 	LC_ALL="en_US.UTF-8"
@@ -29,6 +34,7 @@
 	after insert values in files execute 
 
 	sudo reboot
+
 ##7 - install ruby
     execute commands:
    
@@ -51,10 +57,12 @@
 
     gem install bundler
 
+
 ##8 - install nginx (web server)
 	sudo apt-get -y update
     
 	sudo apt-get install nginx
+
 
 ##9 - adjust firewall
 	sudo ufw app list
@@ -65,9 +73,11 @@
 	sudo service ufw restart 
 	systemctl status nginx
 
+
 ##10 - install mysql
 	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev
 	sudo systemctl status mysql
+
 
 ##11 - create user for deploy 
 	sudo adduser deploy --ingroup www-data
@@ -78,6 +88,7 @@
  	echo [cole a chave pública do seu vagrant] >>
    ~/.ssh/authorized_keys
    chmod 600 ~/.ssh/authorized_keys
+
 
 ##12 -  install node , directory deploy and create db
 	sudo apt-get install nodejs
@@ -90,6 +101,7 @@
 	mysql -u root -p
 	show dabases;
 	create database nameyourdatabase;
+
 
 ##13 - configure capistrano
 	add in gemfile
