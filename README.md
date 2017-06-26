@@ -1,5 +1,5 @@
 ## Config environment of production and deploy app rails
-**this guide will demonstrate how create environment of productionfor application ruby on rails in [Digital Ocean](https://www.digitalocean.com) using Ubuntu 16.4 and deploy**
+**this guide will demonstrate how create environment of production and deploy  application ruby on rails in [Digital Ocean](https://www.digitalocean.com) using Ubuntu 16.4**
 
 ### 1 - Create a droplet in Digital Ocean
 [Click Here](https://www.digitalocean.com/pricing/#droplet)
