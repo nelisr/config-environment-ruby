@@ -38,13 +38,12 @@
   ```
   gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3	 
 	curl -sSL https://get.rvm.io | bash
-	run `source /etc/profile.d/rvm.sh`
-  rvm list known
+	run "source /etc/profile.d/rvm.sh" 
+	rvm list known
 	rvm install 'VERSION RUBY'
-  rvm list
-  rvm use 'VERSION RUBY' --default
-  sudo reboot
-  gem install bundler
+	rvm list
+	rvm use 'VERSION RUBY' --default
+	sudo reboot gem install bundler
 	```
 
 ### 8 - install nginx (web server)
@@ -89,6 +88,7 @@
 
 
 ### 12 -  install node , directory deploy and create db
+	```
 	sudo apt-get install nodejs
 	nodejs --version
 
@@ -99,7 +99,7 @@
 	mysql -u root -p
 	show dabases;
 	create database nameyourdatabase;
-
+	```
 
 ### 13 - configure capistrano
 	
@@ -137,8 +137,8 @@
 	**execute**
 	```
 	bundle exec cap production deploy
- 	bundle exec cap production deploy:check
- 	```
+	bundle exec cap production deploy:check
+	```
 
 
 
